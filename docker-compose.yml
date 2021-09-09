@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  db-postgres:
+    image: "postgres:10"
+    environment:
+      - POSTGRES_DB=etherpad
+      - POSTGRES_USER=etherpad
+      - POSTGRES_PASSWORD=admin
+
+  etherpad:
+    build:
+      context: .
+
+    ports:
+      - 8080:9001
